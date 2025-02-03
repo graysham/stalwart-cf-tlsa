@@ -8,7 +8,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def get_auth_code(api_url, username, password):
     bearer = base64.b64encode(f"{username}:{password}".encode()).decode("utf-8")
     res = requests.post(f"{api_url}/api/oauth", headers={"Authorization": f"Basic {bearer}"}, verify=False, json={
-        'type': "Code",
+        'type': "code",
         'client_id': "webadmin",
         'redirect_uri': None
     })
